@@ -1,7 +1,7 @@
 import React from 'react'
-import { animated, useSpring, useTrail, useChain } from 'react-spring'
+import { animated, useSpring, useTrail, useChain, useTransition } from 'react-spring'
 
-const items = [.5, .1, .2, .3, .4]
+const items = [.5, .1, .2, .3, .4, .4, .4, .4,]
 
 const Boxes = () => {
     const [on, toggle] = React.useState(false)
@@ -14,15 +14,21 @@ const Boxes = () => {
     })
 
     const transitionRef = React.useRef()
-    const trail = useTrail(items.length, {
+    const transition = useTransition(on ? items : [],
+        item => item, {
+        trail: 400 / items.length,
         ref: transitionRef,
         from: {
             opacity: 0,
             transoform: 'scale(0)'
         },
-        to: {
-            opacity: on ? 1 : 0,
-            transoform: on ? 'scale(.3)' : 'scale(1)'
+        enter: {
+            opacity: 1,
+            transoform: 'scale(1)'
+        },
+        leave: {
+            opacity: 0,
+            transoform: 'scale(0)'
         }
     })
 
@@ -36,10 +42,10 @@ const Boxes = () => {
                 onClick={() => toggle(!on)}
                 style={{ width: size, height: size }}
             >
-                {trail.map((animation, key) =>
+                {transition.map(({ item, key, props }) =>
                     <animated.div
                         className="box-two"
-                        style={animation}
+                        style={props}
                         key={key}
                     />
                 )}

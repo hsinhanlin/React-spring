@@ -14,6 +14,9 @@
   --white-20: #f5f4f6;
   --white: #fff;
 }
+* {
+  box-sizing: border-box;
+}
 
 body {
   background-color: #282c34;
