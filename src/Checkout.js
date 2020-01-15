@@ -7,13 +7,17 @@ const Checkout = ({ isOpen }) => {
     })
 
     return (
-        <div className="checkout">
+        <div className="checkout"
+            style={{
+                pointerEvents: isOpen ? 'all' : 'none'
+            }}
+        >
             <animated.div style={{
-                transform: x.interpolate(x => `translate3d(${x * -1}%,0,0)`)
+                transform: x.interpolate(x => `translateX(${x * -1}%)`)
             }}
                 className="checkout-left" />
             <animated.div style={{
-                transform: x.interpolate(x => `translate3d(${x}%,0,0)`)
+                transform: x.interpolate(x => `translateX(${x}%)`)
             }}
                 className="checkout-right" />
 

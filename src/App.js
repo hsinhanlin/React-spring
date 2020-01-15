@@ -17,7 +17,7 @@ const App = () => {
       opacity: 1
     }
   })
-  console.log(isNavOpen)
+
   return (
 
     <animated.div className="App" style={fade}>
