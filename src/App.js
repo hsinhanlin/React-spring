@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSpring, animated } from 'react-spring'
-import Toggle from './Toggle'
+// import Toggle from './Toggle'
 // import Nav from './Nav'
 import Checkout from './Checkout'
+import Routes from './Routes'
 import logo from './logo.svg';
 import './App.css';
 
@@ -26,7 +27,8 @@ const App = () => {
         <button className="menu-button" onClick={() => setNavOpen(!isNavOpen)}>Menu</button>
       </header>
       <main>
-        <Toggle />
+        {/* <Toggle /> */}
+        <Routes />
         <Checkout isOpen={isNavOpen} />
       </main>
     </animated.div>
