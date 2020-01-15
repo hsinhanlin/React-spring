@@ -6,6 +6,8 @@ import Checkout from './Checkout'
 // import Routes from './Routes'
 import Modal from './Modal'
 import Accordion from './Accordion'
+import Gesture from './Gesture'
+// import Waypoints from './Waypoints'
 import logo from './logo.svg';
 import './App.css';
 
@@ -33,6 +35,8 @@ const App = () => {
         {/* <Routes /> */}
         <Modal />
         <Accordion />
+        {/* <Waypoints /> */}
+        <Gesture />
         <Checkout isOpen={isNavOpen} />
       </main>
     </animated.div>
